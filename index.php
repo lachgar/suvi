@@ -13,8 +13,8 @@ and open the template in the editor.
         <?php
         include_once 'service/OrganismeService.php';
         $os = new OrganismeService();
-        foreach ($os->findAll() as $l){
-            echo $l['nom'].'<br>';
+        foreach ($os->findAll() as $l) {
+            echo $l['nom'] . '<br>';
         }
         $o = $os->findById(2);
         $os->delete($o);
