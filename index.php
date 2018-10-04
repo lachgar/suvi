@@ -12,10 +12,13 @@ and open the template in the editor.
     <body>
         <?php
         include_once 'service/OrganismeService.php';
-        $o = new OrganismeService();
-        $o->create(new Organisme(0, "org1", "06782732", "0587292", "bana@gmail.com", "www.ofppt.com", "con1", "Casa"));
-       
-        echo  json_encode($o->findById(1));
+        $os = new OrganismeService();
+        foreach ($os->findAll() as $l){
+            echo $l['nom'].'<br>';
+        }
+        $o = $os->findById(2);
+        $os->delete($o);
+        echo 'ok';
         ?>
     </body>
 </html>

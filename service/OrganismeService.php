@@ -22,7 +22,7 @@ class OrganismeService implements IDao {
     public function delete($o) {
         $query = "delete from Organisme where id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($o->getId())) or die('Delete Error');
+        $req->execute(array($o[0]['id'])) or die('Delete Error');
     }
 
     public function findAll() {
@@ -35,9 +35,9 @@ class OrganismeService implements IDao {
     public function findById($id) {
         $query = "select * from Organisme where id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($id));      
-        $etd = $req->fetchAll();
-        return $etd;
+        $req->execute(array($id));  
+        $org=$req->fetchAll();
+        return $org;
     }
 
     public function update($o) {
