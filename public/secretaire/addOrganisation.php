@@ -21,63 +21,87 @@ and open the template in the editor.
             tr:nth-child(even) {background-color: #dddddd;}
             .valider{background-color: aquamarine;width: 100px;}
         </style>
-        <script src="jquery.js"></script>
+        <script type="application/javascript" src="jquery.js"></script>
+        <script type="application/javascript">
+            $.ajax({
+                url : 'fetchOrganisation.php',
+                type : 'POST',
+                dataType : 'json',
+                success : function (data) {
+                    var organisme =""; 
+                    console.log(data);
+                    organisme +='<tr><th>Firstname</th><th>Lastname</th><th>Age</th><th>Firstname</th><th>Lastname</th><th>Age</th><th>Lastname</th><th>Age</th><th>update</th><th>delete</th></tr>'    
+                    for(var i=0;i<data.length;i++) {
+                        organisme +='<tr><td>'+data[i].id+'</td><td>'+data[i].nom+'</td><td>'+data[i].tel+'</td><td>'+data[i].fax+'</td><td>'+data[i].mail+'</td><td>'+data[i].site+'</td><td>'+data[i].contact+'</td><td>'+data[i].adresse+'</td>'
+                        organisme +='<td><input type="Button" id="update" onclick="f1('+data[i].id+')" value="update" ></td><td><input type="Button" id="delete" value="delete"></td></tr>'
+                    }
+                    table.empty();
+                    table.html(organisme);
+                },
+                error : function(error){
+                    console.log(error);
+                } 
+            });
+        </script>
     </head>
     <body>
-        
-        <form action="" method="GET">
             <table>
-                <tr><td>Id:</td><td><input type="text" name="firstname"><td>Nom:</td><td><input type="text" name="lastname"></td></tr>
-                <tr><td>Tel:</td><td><input type="text" name="lastname"></td><td>Fax:</td><td><input type="text" name="lastname"></tr>
-                <tr><td>Mail:</td><td><input type="text" name="firstname"><td>Site:</td><td><input type="text" name="lastname"></td></tr>
-                <tr><td>Contact:</td><td><input type="text" name="lastname"></td><td>Adresse:</td><td><input type="text" name="lastname"></tr>
-                <tr><td></td><td> <input type="submit" class="valider" value="Submit"></td></tr>
+                <tr><td>Id:</td><td><input type="text" id="id" name="id"><td>Nom:</td><td><input type="text" id="nom" name="nom"></td></tr>
+                <tr><td>Tel:</td><td><input type="text" id="tel" name="tel"></td><td>Fax:</td><td><input type="text" id="fax" name="faax"></tr>
+                <tr><td>Mail:</td><td><input type="text" id="mail" name="mail"><td>Site:</td><td><input type="text" id="site" name="site"></td></tr>
+                <tr><td>Contact:</td><td><input type="text" id="contact" name="contact"></td><td>Adresse:</td><td><input type="text" id="adresse" name="adresse"></tr>
+                <tr><td></td><td> <input type="submit" id="valider" class="valider" value="Submit"></td></tr>
             </table>
-           
-        </form>
-        
         
         <br><br><br><br>
         <div style="width:800px">
-        <table style="width:100%;margin-left: 180px">
-            <tr>
-              <th>Firstname</th>
-              <th>Lastname</th> 
-              <th>Age</th>
-              <th>Firstname</th>
-              <th>Lastname</th> 
-              <th>Age</th>
-              <th>Lastname</th> 
-              <th>Age</th>
-              <th>update</th> 
-              <th>delete</th>
-            </tr>
-            <?php 
-                foreach ($os->findAll() as $l) {
-            ?>
-            <tr>
-              <td><?= $l['id'] ?></td>
-              <td><?= $l['nom'] ?></td> 
-              <td><?= $l['tel'] ?></td>
-              <td><?= $l['fax'] ?></td>
-              <td><?= $l['mail'] ?></td> 
-              <td><?= $l['site'] ?></td>
-              <td><?= $l['contact'] ?></td>
-              <td><?= $l['adresse'] ?></td> 
-              <td><input type="Button" id="update" value="update" ></td>
-              <td><input type="Button" id="delete" value="delete" ></td> 
-            </tr>
-                        
-            <?php } ?>
             
-      </table>
+            <table id="table" style="width:100%;margin-left: 180px">
+                
+            </table>
         </div> 
     </body>
-    <script>
-       var up = $("#update");
-       up.on('click', function(){
-           alert('ok');
-       });
+    <script type="application/javascript">
+        
+        var up = $("#update");
+        var valider = $("#valider");
+        var table = $("#table");
+        
+        valider.on('click', function(){
+            var nom = $("#nom").val();
+            var tel = $("#tel").val();
+            var id = $("#id").val();
+            var fax = $("#fax").val();
+            var mail = $("#mail").val();
+            var site = $("#site").val();
+            var contact = $("#contact").val();
+            var adresse = $("#adresse").val();
+            
+            //alert(id);
+            $.ajax({
+                url : 'ajouterOrg.php',
+                type : 'POST',
+                dataType : 'json',
+                data : {'id': parseInt(id),'nom' : nom,'tel' : tel,'fax' : fax,'mail' : mail,'site' : site,'contact' : contact,'adresse' : adresse},
+//                processData: false,
+//                contentType: false,
+//                cache : false,
+                success : function (data) {
+                    var organisme =""; 
+                    console.log(data);
+                    organisme +='<tr><th>Firstname</th><th>Lastname</th><th>Age</th><th>Firstname</th><th>Lastname</th><th>Age</th><th>Lastname</th><th>Age</th><th>update</th><th>delete</th></tr>'    
+                    for(var i=0;i<data.length;i++) {
+                        organisme +='<tr><td>'+data[i].id+'</td><td>'+data[i].nom+'</td><td>'+data[i].tel+'</td><td>'+data[i].fax+'</td><td>'+data[i].mail+'</td><td>'+data[i].site+'</td><td>'+data[i].contact+'</td><td>'+data[i].adresse+'</td>'
+                        organisme +='<td><input type="Button" id="update" onclick="f1('+data[i].id+')" value="update" ></td><td><input type="Button" id="delete" value="delete"></td></tr>'
+                    }
+                    table.empty();
+                    table.html(organisme);
+                }
+            });
+        });
+        
+        function f1(id){alert(""+id);}
+        
     </script>
 </html>
 
