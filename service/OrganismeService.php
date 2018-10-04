@@ -13,19 +13,16 @@ class OrganismeService implements IDao {
         $this->connexion = new Connexion();
     }
 
-    //put your code here
-    public function create($o) {
+  public function create($o) {
         $query = "INSERT INTO Organisme VALUES (NULL,?,?,?,?,?,?,?)";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($o->getNom(), $o->getTel(), $o->getFax(), $o->getMail(), $o->getSite(), $o->getContact(), $o->getAdresse())) or die('Delete Error');
     }
 
     public function delete($o) {
-        $res = "DELETE FROM Organisme WHERE id = :id";
-        $res = $this->connexion->getConnextion()->prepare($res);
-        $res->execute(array(
-            ":id" => $o->getId()
-        )) or die("error");
+        $query = "delete from Organisme where id =?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($o->getId())) or die('Delete Error');
     }
 
     public function findAll() {
@@ -36,11 +33,17 @@ class OrganismeService implements IDao {
     }
 
     public function findById($id) {
-        
+        $query = "select * from Organisme where id =? ";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($id));      
+        $etd=$req->fetchAll();
+        return $etd;
     }
 
     public function update($o) {
-        
+        $query = "UPDATE Organisme SET nom =?,tel=?,fax=?,mail=?,site=?,contact=?,aresse=? WHERE id =?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($o->getNom(),$o->getTel(),$o->getFax(),$o->getMail(),$o->getSite(),$o->getContact(),$o->getAdresse(),$o->getId())) or die(' Update Error');
     }
 
 }
