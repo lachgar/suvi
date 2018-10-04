@@ -25,7 +25,10 @@ class OrganismeService implements IDao {
     }
 
     public function findAll() {
-        
+        $query = "select * from Organisme";
+        $req = $this->connexion->getConnexion()->query($query);
+        $etds = $req->fetchAll();
+        return $org;
     }
 
     public function findById($id) {
