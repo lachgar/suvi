@@ -14,6 +14,8 @@ and open the template in the editor.
         include_once 'service/OrganismeService.php';
         $o = new OrganismeService();
         $o->create(new Organisme(0, "org1", "06782732", "0587292", "bana@gmail.com", "www.ofppt.com", "con1", "Casa"));
+       
+        echo  json_encode($o->findById(1));
         ?>
     </body>
 </html>

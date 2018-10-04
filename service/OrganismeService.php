@@ -33,10 +33,10 @@ class OrganismeService implements IDao {
     }
 
     public function findById($id) {
-        $query = "select * from Organisme where id =? ";
+        $query = "select * from Organisme where id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($id));      
-        $etd=$req->fetchAll();
+        $etd = $req->fetchAll();
         return $etd;
     }
 
