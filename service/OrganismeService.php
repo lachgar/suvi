@@ -21,7 +21,11 @@ class OrganismeService implements IDao {
     }
 
     public function delete($o) {
-        
+        $res = "DELETE FROM Organisme WHERE id = :id";
+        $res = $this->connexion->getConnextion()->prepare($res);
+        $res->execute(array(
+            ":id" => $o->getId()
+        )) or die();
     }
 
     public function findAll() {
