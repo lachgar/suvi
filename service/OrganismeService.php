@@ -25,7 +25,7 @@ class OrganismeService implements IDao {
         $res = $this->connexion->getConnextion()->prepare($res);
         $res->execute(array(
             ":id" => $o->getId()
-        )) or die();
+        )) or die("error");
     }
 
     public function findAll() {
