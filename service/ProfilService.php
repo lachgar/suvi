@@ -46,7 +46,7 @@ class ProfilService implements IDao {
     public function update($o) {
          $query = "UPDATE Profil SET code =?,libelle=? WHERE id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($o->getCode(),$o->getLibelle())) or die(' Update Error');
+        $req->execute(array($o[0]['code'],$o[0]['libelle'],$o[0]['id'])) or die(' Update Error');
     
     }
 
