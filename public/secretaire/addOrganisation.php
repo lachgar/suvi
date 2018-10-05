@@ -88,15 +88,15 @@ and open the template in the editor.
         //                contentType: false,
         //                cache : false,
         success : function (data) {
-        var organisme =""; 
-        console.log(data);
-        organisme +='<tr><th>Firstname</th><th>Lastname</th><th>Age</th><th>Firstname</th><th>Lastname</th><th>Age</th><th>Lastname</th><th>Age</th><th>update</th><th>delete</th></tr>'    
-        for(var i=0;i<data.length;i++) {
-        organisme +='<tr><td>'+data[i].id+'</td><td>'+data[i].nom+'</td><td>'+data[i].tel+'</td><td>'+data[i].fax+'</td><td>'+data[i].mail+'</td><td>'+data[i].site+'</td><td>'+data[i].contact+'</td><td>'+data[i].adresse+'</td>'
-        organisme +='<td><input type="Button" id="update" onclick="f1('+data[i].id+')" value="update" ></td><td><input type="Button" id="delete" value="delete"></td></tr>'
-        }
-        table.empty();
-        table.html(organisme);
+            var organisme =""; 
+            console.log(data);
+            organisme +='<tr><th>Firstname</th><th>Lastname</th><th>Age</th><th>Firstname</th><th>Lastname</th><th>Age</th><th>Lastname</th><th>Age</th><th>update</th><th>delete</th></tr>'    
+            for(var i=0;i<data.length;i++) {
+            organisme +='<tr><td>'+data[i].id+'</td><td>'+data[i].nom+'</td><td>'+data[i].tel+'</td><td>'+data[i].fax+'</td><td>'+data[i].mail+'</td><td>'+data[i].site+'</td><td>'+data[i].contact+'</td><td>'+data[i].adresse+'</td>'
+            organisme +='<td><input type="Button" id="update" onclick="f1('+data[i].id+')" value="update" ></td><td><input type="Button" id="delete" value="delete"></td></tr>'
+            }
+            table.empty();
+            table.html(organisme);
         }
         });
         });

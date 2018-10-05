@@ -10,7 +10,7 @@ class Organisme {
     private $site;
     private $contact;
     private $adresse;
-    
+   
     function __construct($id, $nom, $tel, $fax, $mail, $site, $contact, $adresse) {
         $this->id = $id;
         $this->nom = $nom;
@@ -21,7 +21,7 @@ class Organisme {
         $this->contact = $contact;
         $this->adresse = $adresse;
     }
-    
+
     function getId() {
         return $this->id;
     }
@@ -85,5 +85,10 @@ class Organisme {
     function setAdresse($adresse) {
         $this->adresse = $adresse;
     }
+
+    public function __toString() {
+        return $this->nom;
+    }
+
           
 }
