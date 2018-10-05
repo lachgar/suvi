@@ -11,14 +11,18 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include_once 'service/OrganismeService.php';
-        $os = new OrganismeService();
-        foreach ($os->findAll() as $l) {
-            echo $l['nom'] . '<br>';
-        }
-        $o = $os->findById(2);
-        $os->delete($o);
-        echo 'ok';
+//        include_once 'service/ProfilService.php';
+//        
+//        $os = new ProfilService();
+//      
+//        
+//        $o = $os->findById(1);
+//      
+//         $o[0]['code'] = "AA";
+//         $o[0]['libelle'] = "AA2";
+//        
+//        $os->update($o);
+//        echo 'ok';
         ?>
     </body>
 </html>
