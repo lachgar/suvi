@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-chdir('..');chdir('..');
+chdir('..');chdir('..');chdir('..');
 include_once 'service/OrganismeService.php';
 
 $os = new OrganismeService();

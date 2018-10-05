@@ -25,7 +25,7 @@ and open the template in the editor.
         <script type="application/javascript" src="../../js/jquery.js"></script>
         <script type="application/javascript">
             $.ajax({
-            url : 'fetchOrganisation.php',
+            url : 'api/fetchOrganisation.php',
             type : 'POST',
             dataType : 'json',
             success : function (data) {
@@ -80,7 +80,7 @@ and open the template in the editor.
 
         //alert(id);
         $.ajax({
-        url : 'ajouterOrg.php',
+        url : 'api/ajouterOrg.php',
         type : 'POST',
         dataType : 'json',
         data : {'id': parseInt(id),'nom' : nom,'tel' : tel,'fax' : fax,'mail' : mail,'site' : site,'contact' : contact,'adresse' : adresse},
