@@ -7,16 +7,14 @@ include_once 'beans/Organisme.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $os = new OrganismeService();
-    $ido = $_POST['id'];
-    $nomo = $_POST['nom'];
-    $telo = $_POST['tel'];
-    $faxo = $_POST['fax'];
-    $mailo = $_POST['mail'];
-    $siteo = $_POST['site'];
-    $contacto = $_POST['contact'];
-    $adresseo = $_POST['adresse'];
-    $o = new Organisme($ido,$nomo,$telo,$faxo,$mailo,$siteo,$contacto,$adresseo);
-    $os->update($o);
+    $id = $_POST['id'];
+    $nom = $_POST['nom'];
+    $tel = $_POST['tel'];
+    $fax = $_POST['fax'];
+    $mail = $_POST['mail'];
+    $site = $_POST['site'];
+    $contact = $_POST['contact'];
+    $adresse = $_POST['adresse'];
     
     $all = $os->findAll();
     header('Content-type: application/json');
