@@ -23,8 +23,6 @@ and open the template in the editor.
         <script type="application/javascript" src="../../js/jquery.js"></script>
         <script type="application/javascript">
 
-
-
             $.ajax({
             url : 'fetchProfile.php',
             type : 'POST',
@@ -32,6 +30,7 @@ and open the template in the editor.
             success : function (data) {
             var profil =""; 
             console.log(data);
+
             profil +='<tr><th>CODE</th><th>LIBELLE</th><th>update</th><th>delete</th></tr>'    
             for(var i=0;i<data.length;i++) {
             profil +='<tr id="tab'+data[i].id+'"><td data-target="code">'+data[i].code+'</td><td data-target="libelle">'+data[i].libelle+'</td>'
@@ -39,12 +38,9 @@ and open the template in the editor.
             }
             table.empty();
             table.html(profil);
-            },
-            error : function(error){
-            console.log(error);
             } 
-            });
-
+            }
+            );
 
 
 
@@ -130,6 +126,7 @@ and open the template in the editor.
         });
 
 
+
         //delete function
 
         function delete_user(id){
@@ -193,6 +190,7 @@ and open the template in the editor.
         }
         });
         });
+
 
 
     </script>
