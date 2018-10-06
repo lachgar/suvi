@@ -1,16 +1,22 @@
 <?php
 
+error_reporting(E_ALL);
 chdir("..");chdir("..");
 include_once 'service/ProfilService.php';
 
-if($_SERVER["REQUEST_METHOD"] == "GET"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     delete();
 }
 
 function delete(){
-    $id = $_GET["id"];
+    $id = $_POST["id"];
     $os = new ProfilService();
-    $os->delete($id);
+    $o = $os->findById($id);
+    $os->delete($o);
     
-    header('location:addProfil.php');
+        
+    $all = $os->findAll();
+    header('Content-type: application/json');
+    echo json_encode($all);
+
 }
