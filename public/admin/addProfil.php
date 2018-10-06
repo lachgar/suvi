@@ -16,36 +16,33 @@ and open the template in the editor.
         </style>
         <script type="application/javascript" src="../../js/jquery.js"></script>
         <script type="application/javascript">
-            
-              
-                
             $.ajax({
             url : 'fetchProfile.php',
             type : 'POST',
             dataType : 'json',
             success : function (data) {
-        var profil =""; 
-        console.log(data);
-        profil +='<tr><th>ID</th><th>CODE</th><th>LIBELLE</th><th>update</th><th>delete</th></tr>'    
-        for(var i=0;i<data.length;i++) {
-        profil +='<tr><td>'+data[i].id+'</td><td>'+data[i].code+'</td><td>'+data[i].libelle+'</td>'
-        profil +='<td><input type="Button" id="update" onclick="update_user('+data[i].id+')" value="update" ></td><td><input type="Button" onclick="delete_user('+data[i].id+')" id="delete" value="delete"></td></tr>'
-        }
-        table.empty();
-        table.html(profil);
-        },
+            var profil =""; 
+            console.log(data);
+            profil +='<tr><th>ID</th><th>CODE</th><th>LIBELLE</th><th>update</th><th>delete</th></tr>'    
+            for(var i=0;i<data.length;i++) {
+            profil +='<tr><td>'+data[i].id+'</td><td>'+data[i].code+'</td><td>'+data[i].libelle+'</td>'
+            profil +='<td><input type="Button" id="update" onclick="update_user('+data[i].id+')" value="update" ></td><td><input type="Button" onclick="delete_user('+data[i].id+')" id="delete" value="delete"></td></tr>'
+            }
+            table.empty();
+            table.html(profil);
+            },
             error : function(error){
             console.log(error);
             } 
             });
-           function delete_user(id){
-                
-                    window.location = 'deleteProfile.php?id='+id;
-                
+            function delete_user(id){
+
+            window.location = 'deleteProfile.php?id='+id;
+
             }
-               
-            
-    
+
+
+
         </script>
     </head>
     <body>
@@ -73,8 +70,8 @@ and open the template in the editor.
         valider.on('click', function(){
         var code = $("#code").val();
         var libelle = $("#libelle").val();
-        
-        
+
+
         //alert(id);
         $.ajax({
         url : 'ajouterProfil.php',
@@ -98,7 +95,7 @@ and open the template in the editor.
         });
         });
 
- 
+
 
     </script>
 </html>
