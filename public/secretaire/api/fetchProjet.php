@@ -1,11 +1,11 @@
 <?php
 error_reporting(E_ALL);
 chdir('..');chdir('..');chdir('..');
-include_once 'service/OrganismeService.php';
+include_once 'service/ProjetService.php';
 
-$os = new OrganismeService();
+$ps = new ProjetService();
 
-$all = $os->findAll();
+$all = $ps->findProOrgChef();
 header('Content-type: application/json');
 echo json_encode($all);
 

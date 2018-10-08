@@ -11,10 +11,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $description = $_POST['description'];
     $datedebut = $_POST['datedebut'];
     $datefin = $_POST['datefin'];
-    $chef = $_POST['chef'];
+    $chef = 5;
     $idorganisme = $_POST['idorganisme'];
     $etat = $_POST['etat'];
-    $montant = $_POST['montant'];
+    $montant = 00000;
     $p = new Projet(0,$intitule,$description,$datedebut,$datefin,$etat,$montant,$idorganisme,$chef);
     $ps->create($p);
     

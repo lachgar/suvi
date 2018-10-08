@@ -59,8 +59,43 @@ class Projet {
         return $this->idchef;
     }
 
-        
-    public function __toString() {
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setIntitule($intitule) {
+        $this->intitule = $intitule;
+    }
+
+    function setDescription($description) {
+        $this->description = $description;
+    }
+
+    function setDatedebut($datedebut) {
+        $this->datedebut = $datedebut;
+    }
+
+    function setDatefin($datefin) {
+        $this->datefin = $datefin;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+    }
+
+    function setMontant($montant) {
+        $this->montant = $montant;
+    }
+
+    function setIdorganisme($idorganisme) {
+        $this->idorganisme = $idorganisme;
+    }
+
+    function setIdchef($idchef) {
+        $this->idchef = $idchef;
+    }
+
+        public function __toString() {
         return $this->intitule;
     }
 }
