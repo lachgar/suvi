@@ -12,81 +12,99 @@
  * @author a
  */
 class User {
-     private $id;
-     private $nom;
-     private $prenom;
-     private $date;
-     private $email;
-     private $tel;
-     private $idprofil;
-     
-     
-     function __construct($id, $nom, $prenom, $date, $email, $tel, $idprofil) {
-         $this->id = $id;
-         $this->nom = $nom;
-         $this->prenom = $prenom;
-         $this->date = $date;
-         $this->email = $email;
-         $this->tel = $tel;
-         $this->idprofil = $idprofil;
-     }
-     function getId() {
-         return $this->id;
-     }
 
-     function getNom() {
-         return $this->nom;
-     }
+    private $id;
+    private $nom;
+    private $prenom;
+    private $date;
+    private $email;
+    private $tel;
+    private $idprofil;
+    private $login;
+    private $password;
 
-     function getPrenom() {
-         return $this->prenom;
-     }
+    function __construct($id, $nom, $prenom, $date, $email, $tel, $idprofil, $login, $password) {
+        $this->id = $id;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->date = $date;
+        $this->email = $email;
+        $this->tel = $tel;
+        $this->idprofil = $idprofil;
+        $this->login = $login;
+        $this->password = $password;
+    }
 
-     function getDate() {
-         return $this->date;
-     }
+    function getId() {
+        return $this->id;
+    }
 
-     function getEmail() {
-         return $this->email;
-     }
+    function getNom() {
+        return $this->nom;
+    }
 
-     function getTel() {
-         return $this->tel;
-     }
+    function getPrenom() {
+        return $this->prenom;
+    }
 
-     function getIdprofil() {
-         return $this->idprofil;
-     }
+    function getDate() {
+        return $this->date;
+    }
 
-     function setId($id) {
-         $this->id = $id;
-     }
+    function getEmail() {
+        return $this->email;
+    }
 
-     function setNom($nom) {
-         $this->nom = $nom;
-     }
+    function getTel() {
+        return $this->tel;
+    }
 
-     function setPrenom($prenom) {
-         $this->prenom = $prenom;
-     }
+    function getIdprofil() {
+        return $this->idprofil;
+    }
 
-     function setDate($date) {
-         $this->date = $date;
-     }
+    function getLogin() {
+        return $this->login;
+    }
 
-     function setEmail($email) {
-         $this->email = $email;
-     }
+    function getPassword() {
+        return $this->password;
+    }
 
-     function setTel($tel) {
-         $this->tel = $tel;
-     }
+    function setId($id) {
+        $this->id = $id;
+    }
 
-     function setIdprofil($idprofil) {
-         $this->idprofil = $idprofil;
-     }
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
 
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
 
+    function setDate($date) {
+        $this->date = $date;
+    }
 
-    
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setTel($tel) {
+        $this->tel = $tel;
+    }
+
+    function setIdprofil($idprofil) {
+        $this->idprofil = $idprofil;
+    }
+
+    function setLogin($login) {
+        $this->login = $login;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
 }

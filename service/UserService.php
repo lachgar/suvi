@@ -13,9 +13,9 @@ class UserService  implements IDao{
     }
 
   public function create($o) {
-        $query = "INSERT INTO User VALUES (NULL,?,?,?,?,?)";
+        $query = "INSERT INTO User VALUES (NULL,?,?,?,?,?,?,?)";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($o->getNom(),$o->getPrenom(), $o->getDate(),getEmail(),getTel(),getIdprofil())) or die('Delete Error');
+        $req->execute(array($o->getNom(),$o->getPrenom(), $o->getDate(),$o->getEmail(),$o->getTel(),$o->getIdprofil(),$o->getLogin(),$o->getPassword())) or die('Delete Error');
     }
 
     public function delete($o) {
@@ -40,8 +40,8 @@ class UserService  implements IDao{
     }
 
     public function update($o) {
-        $query = "UPDATE User SET nom =?,prenom=?,date=?,email=?,tel=?,idprofil=? WHERE id =?";
+        $query = "UPDATE User SET nom =?,prenom=?,date=?,email=?,tel=?,idprofil=?,login=?,password=? WHERE id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($o->getNom(),$o->getPrenom(), $o->getDate(),getEmail(),getTel(),getIdprofil())) or die(' Update Error');
+        $req->execute(array($o->getNom(),$o->getPrenom(), $o->getDate(),$o->getEmail(),$o->getTel(),$o->getIdprofil(),$o->getLogin(),$o->getPassword())) or die(' Update Error');
     }
 }
