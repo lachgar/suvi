@@ -15,7 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $site = $_POST['site'];
     $contact = $_POST['contact'];
     $adresse = $_POST['adresse'];
-    
+    $o = new Organisme($id,$nom,$tel,$fax,$mail,$site,$contact,$adresse);
+    $o->setId($id);
+    $os->update($o);
     $all = $os->findAll();
     header('Content-type: application/json');
     echo json_encode($all);

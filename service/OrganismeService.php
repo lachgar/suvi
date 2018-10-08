@@ -40,9 +40,9 @@ class OrganismeService implements IDao {
     }
 
     public function update($o) {
-        $query = "UPDATE Organisme SET nom =?,tel=?,fax=?,mail=?,site=?,contact=?,aresse=? WHERE id =?";
+        $query = "UPDATE Organisme SET nom =?,tel=?,fax=?,mail=?,site=?,contact=?,adresse=? WHERE id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($o->getNom(),$o->getTel(),$o->getFax(),$o->getMail(),$o->getSite(),$o->getContact(),$o->getAdresse(),$o->getId())) or die(' Update Error');
+        $req->execute(array($o->getNom(),$o->getTel(),$o->getFax(),$o->getMail(),$o->getSite(),$o->getContact(),$o->getAdresse(),$o->getId())) or die(' Update Error service organisme');
     }
 
 }

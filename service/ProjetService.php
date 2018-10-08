@@ -24,9 +24,9 @@ class ProjetService implements IDao {
     }
     
     public function update($p){
-         $query = "UPDATE Projet SET Intitule =?,descreption=?,datedebut=?,datefin=?,etat=?,montant=?, idoranisme = ?, idchef=? WHERE id =?";
+        $query = "UPDATE Projet SET Intitule =?,descreption=?,datedebut=?,datefin=?,etat=?,montant=?, idoranisme = ?, idchef=? WHERE id =?";
         $req = $this->connexion->getConnexion()->prepare($query);
-        $req->execute(array($p->getIntitule(),$p->getDatedebut(),$p->getDatefin(),$p->getEtat(),$p->getMontant(),$p->getIdorganisme(), $p->getIdchef()));  die(' Update Error service projet');
+        $req->execute(array($p->getIntitule(),$p->getDatedebut(),$p->getDatefin(),$p->getEtat(),$p->getMontant(),$p->getIdorganisme(), $p->getIdchef())) or die(' Update Error service projet');
         
     }
     public function findAll(){
