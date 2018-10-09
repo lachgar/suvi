@@ -1,5 +1,7 @@
 <?php
-
+chdir("..");
+chdir("..");
+chdir("..");
 include_once 'connexion/Connexion.php';
 include_once 'service/ProfilService.php';
 include_once 'service/UserService.php';
@@ -20,13 +22,13 @@ function getUserByLogin($login, $password) {
     if($e = $req->fetch(PDO::FETCH_OBJ)){
         $user = $e->libelle;
         if ($user == "directeur") {
-            echo '<script> document.location.replace("public/directeur");</script>';
+            echo '<script> document.location.replace("../../public/directeur");</script>';
         } elseif ($user == "admin") {
-            echo '<script> document.location.replace("public/admin");</script>';
+            echo '<script> document.location.replace("../../public/admin");</script>';
         } elseif ($user == "secretaire") {
-            echo '<script> document.location.replace("public/secretaire");</script>';
+            echo '<script> document.location.replace("../../public/secretaire");</script>';
         } elseif ($user == "chef") {
-            echo '<script> document.location.replace("public/chef");</script>';
+            echo '<script> document.location.replace("../../public/chef");</script>';
         }
     } else {
         echo '<div class="alert alert-warning">
