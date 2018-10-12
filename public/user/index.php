@@ -17,29 +17,29 @@ and open the template in the editor.
         <!-- My Script-->
         <script  src="../../js/myScript.js"></script>
         <!-- jquery -->
-        <script  src="../../js/jquery.js"></script>        
+        <script  src="../../js/jquery.js"></script>         
         <script>
             $(document).ready(function () {
                 $("#loginn").click(function (event) {
                     event.preventDefault();
                     $.post({
-                        url : 'api/AuthentificationUser.php',
-                        data : {
-                                login: $("#login").val(),
-                                password: $("#password").val()
-                            },
-
-                        success : function (res) {
-                            console.log("affichage : "+res);
-                            $('#msgerreursignup').html(res);
-                            
+                        url: 'api/AuthentificationUser.php',
+                        data: {
+                            login: $("#login").val(),
+                            password: $("#password").val()
                         },
-                        error: function(e) {
-                              console.log("error : "+e.message);
+
+                        success: function (res) {
+                            console.log("affichage : " + res);
+                            $('#msgerreursignup').html(res);
+
+                        },
+                        error: function (e) {
+                            console.log("error : " + e.message);
                         }
                     });
                 });
-                
+
             });
         </script>
     </head>
@@ -76,44 +76,44 @@ and open the template in the editor.
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <!-- Button trigger modal -->
-                    <button type="button" id="clickModal" class="btn btn-success" data-toggle="modal" data-target="#myModal">Login</button>
-                </form>
+                <!--                <form class="form-inline my-2 my-lg-0">
+                                     Button trigger modal 
+                                    <button type="button" id="clickModal" class="btn btn-success" data-toggle="modal" data-target="#myModal">Login</button>
+                                </form>-->
             </div>
         </nav>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Authentification</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form class="formlogin" action="api/AuthentificationUser.php" method="POST">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="login">Login</label>
-                                <input type="login" name="login" class="form-control" id="login" aria-describedby="emailHelp" placeholder="Entrer email">
-                            </div>
-                            <div class="form-group">
-                                <label for="Password">Mot de passe</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe">
-                            </div>
 
-                            <div id="msgerreursignup"> </div>
+
+        <!-- Cards -->
+
+        <div class="container" style="padding-top: 5%;margin: 0 auto;">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <h5 class="card-header">Authentification</h5>
+                        <div class="card-body">
+                            <form class="formlogin" action="api/AuthentificationUser.php" method="POST">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="login">Login</label>
+                                        <input type="login" name="login" class="form-control" id="login" aria-describedby="emailHelp" placeholder="Entrer email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Password">Mot de passe</label>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe">
+                                    </div>
+
+                                    <div id="msgerreursignup"> </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" name="loginn" id="loginn" class="btn btn-success">Connexion</button>
+                                </div>
+                            </form> 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                            <button type="submit" name="loginn" id="loginn" class="btn btn-success">Connexion</button>
-                        </div>
-                    </form> 
+                    </div>
                 </div>
             </div>
         </div>
-
         <!-- bootstrap JavaScript 4.0.0 -->
         <script  src="../../js/bootstrap.js"></script>
         <script src="../../js/bootstrap.min.js"></script>
